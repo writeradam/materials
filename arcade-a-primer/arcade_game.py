@@ -238,7 +238,7 @@ class SpaceShooter(arcade.Window):
     arcade.get_window().clear()
         """Draw all game objects"""
 
-        arcade.start_render()
+        arcade.clear()
         self.all_sprites.draw()
 
 
