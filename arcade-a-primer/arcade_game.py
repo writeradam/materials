@@ -234,7 +234,8 @@ class SpaceShooter(arcade.Window):
         if self.player.left < 0:
             self.player.left = 0
 
-    def on_draw(self):
+    def on_draw():
+    arcade.get_window().clear()
         """Draw all game objects"""
 
         arcade.start_render()
