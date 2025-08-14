@@ -5,10 +5,10 @@ A simple 2D game built with the Python Arcade library, adapted from the [RealPyt
 
 ## Overview / Introduction
 
-This repository contains the example game code from the RealPython Arcade Primer, adapted for quick setup and testing. It’s intended as a fast-start reference and a compatibility guide for running the game on modern versions of the Python Arcade library.
+This repository provides a ready-to-run copy of the game from the [RealPython Arcade Primer](https://realpython.com/arcade-python-game-framework/), with pinned dependencies and compatibility notes for modern Arcade versions. It’s intended as a fast-start reference and a compatibility guide for running the game on modern versions of the Python Arcade library.
 
-This tutorial is for anyone who wants to:
-- **Run the Arcade Game immediately** — follow the Quickstart for an out-of-the-box working version.
+This quickstart / compatibility guide is for anyone who wants to:
+- **Run the Arcade Game immediately** — follow the quickstart for an out-of-the-box working version.
 - **Modify or extend the game** — explore the code structure and use the [RealPython Arcade Primer tutorial](https://realpython.com/arcade-python-game-framework/) for detailed explanations of each part. 
 
 ## What this README Adds Beyond RealPython
@@ -17,6 +17,8 @@ This tutorial is for anyone who wants to:
 - **Pinned package versions** so the game runs as written.
 - **Known Issues section** for modern Arcade releases.
 - **Screenshots/GIFs** for quick visual reference.
+
+Note: Instructions tested on macOS and Linux; Windows users may need small path adjustments. 
 
 ## Arcade Game Functionality 
 
@@ -42,12 +44,11 @@ Arcade is a Python game framework built on top of several other libraries.
 When you install Arcade via `pip`, it automatically pulls in these dependencies:
 
 arcade (2.x)
-├─ pyglet (2.x)
-│ └─ OpenGL / windowing (via your system's graphics backend)
-├─ numpy
-├─ Pillow
-├─ pytiled-parser
-└─ shapely (optional; boosts collision performance)
+- **pyglet** — windowing, graphics, audio, and input (built on OpenGL).  
+- **numpy** — math ops for collisions and movement.  
+- **Pillow** — loads/manipulates sprite images.  
+- **pytiled-parser** — reads Tiled Map Editor files.  
+- **shapely** (optional) — high-performance polygon math for collisions.  
 
 ### Dependency Details
 
@@ -75,29 +76,47 @@ Arcade needs:
 
 
 ```
-git clone https://github.com/<your-username>/arcade-a-primer.git
+git clone https://github.com/writeradam/arcade-a-primer/.git
 cd arcade-a-primer
+cd materials
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install "arcade<3.0"  # Arcade 2.x for tutorial compatibility
-python arcade_primer.py
+python arcade_game.py
 ```
 
-## Version notes
+## Quick Run (No Virtual Environment)
 
-The original RealPython code was written for Arcade 2.x. In Arcade 3.x, calling arcade.start_render() in a windowed game throws:
+If you just want to try the game without creating a virtual environment, you can install Arcade system-wide and run it:
+
+```bash
+Copy
+Edit
+pip install --upgrade pip
+pip install "arcade<3.0"
+python arcade_game.py```
+
+⚠️ Note: This will install packages into your global Python environment, which may conflict with other projects. Use a virtual environment if you plan to keep developing or modifying the game.
+
+## Arcade 2.x vs. 3.x Compatibility
+
+The original RealPython code was written for Arcade 2.x. In Arcade 3.x, calling arcade.start_render() in a windowed game throws a RuntimeError:
 
 ```
-
 RuntimeError: start_render() can only be called once during the application's lifetime...
-
 ```
 
-**Fixes:**
+**Why this happens:**
 
-- **Easiest:** Install Arcade <3.0 (as in the QuickStart instructions).
-- **Modernize:** Replace arcade.start_render() in on_draw() with self.clear() or window.clear().
+In Arcade 3.x, arcade.start_render() is no longer meant to be called in a typical on_draw() method for a game window. Instead, the rendering lifecycle is handled differently, and start_render() is reserved for specific one-shot drawing scenarios.
+
+**How to fix it**
+The easiest way to fix this issue is to install and run Arcade 2.x:
+
+```python3 -m pip install "arcade<3.0"```
+
+If you want to modernize the code, you can do so by updating every `arcade.start_render()` with a `selfclear()` or a `window.clear()` call.
 
 ## Running the Game
 
@@ -108,16 +127,6 @@ To launch the game, enter:
 A new window should pop up. Sound effects and gameplay should start immediately. If they do not, head to the next section of this tutorial.
 
 <img width="1712" height="1340" alt="Screenshot 2025-08-14 at 3 03 46 PM" src="https://github.com/user-attachments/assets/0a65cded-6732-4ca2-9037-6c75befcc0a3" />
-
-## Known Issues / Common Pitfalls
-
-RealPython's code is built to run on Arcade <3.0. If you have installed Arcade 3.x, the code will throw a RuntimeError.
-
- As mentioned above, the easiest way to fix this issue is to install and run Arcade 2.x. Here is how to do so:
-
-```python3 -m pip install "arcade<3.0"```
-
-If you want to modernize the code, you can do so by updating every arcade.start_render() with a clear() call on the window object.
 
 ## PR Guidelines
 
@@ -151,5 +160,4 @@ MIT
 
 ## Acknowledgments
 
-This tutorial was written on the basis of the [RealPython Arcade Primer](https://realpython.com/arcade-python-game-framework/). If you want detailed information on how to modify the codebase, head to the primer. 
-
+Original game design, code, and tutorial content by the [RealPython](https://realpython.com) team. This repo’s purpose is quick setup and compatibility documentation.
