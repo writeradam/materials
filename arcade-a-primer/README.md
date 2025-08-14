@@ -103,7 +103,7 @@ RuntimeError: start_render() can only be called once during the application's li
 
 To launch the game, enter:
 
-```python3 arcade_game.py'''
+```python3 arcade_game.py```
 
 A new window should pop up. Sound effects and gameplay should start immediately. If they do not, head to the next section of this tutorial.
 
@@ -111,22 +111,45 @@ A new window should pop up. Sound effects and gameplay should start immediately.
 
 ## Known Issues / Common Pitfalls
 
-Bugs or breaking changes between library versions (this is where your start_render() → clear() bug goes).
+RealPython's code is built to run on Arcade <3.0. If you have installed Arcade 3.x, the code will throw a RuntimeError.
 
-Workarounds or fixes.
+ As mentioned above, the easiest way to fix this issue is to install and run Arcade 2.x. Here is how to do so:
 
-Links to relevant issue tracker threads if public.
+```python3 -m pip install "arcade<3.0"```
 
-Contributing (optional)
+If you want to modernize the code, you can do so by updating every arcade.start_render() with a clear() call on the window object.
 
-Guidelines for PRs, issue reporting.
+## PR Guidelines
 
-License
+1. Scope of Contribution
 
-Type of license (MIT, Apache 2.0, etc.).
+Only accept PRs that fix bugs, update compatibility for newer versions of Arcade, or improve documentation. No new gameplay features unless discussed in an issue first.
 
-A short note if based on a tutorial — credit original authors.
+2. Branching Model
 
-Acknowledgments (optional)
+Create your feature branch from main and name it fix/<description> or feature/<description>. 
 
-Tutorial authors, libraries used, community resources.Source files supporting the [Arcade: A Primer on the Python Game Framework](https://realpython.com/arcade-python-game-framework/) article on [Real Python](https://realpython.com/).
+3. Commit Style
+
+Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style: fix: `compatibility with Arcade 3.x.`
+
+4. Testing Requirements
+
+Make sure the game runs without errors using `arcade<3.0` and `arcade>=3.0`. Update README if fixing compatibility.
+
+5. Documentation Requirements
+
+If you fix a bug, update the “Known Issues” section of the README with the old behavior and the fix.
+
+6. Review Process
+
+PRs will be reviewed within 5 business days. Please respond to reviewer comments within a week or the PR may be closed.
+
+## Type of license 
+
+MIT
+
+## Acknowledgments
+
+This tutorial was written on the basis of the [RealPython Arcade Primer](https://realpython.com/arcade-python-game-framework/). If you want detailed information on how to modify the codebase, head to the primer. 
+
