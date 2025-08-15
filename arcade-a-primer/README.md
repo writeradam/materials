@@ -32,9 +32,7 @@ Note: Instructions tested on macOS and Linux; Windows users may need small path 
 The game runs on Python version 3.7 or higher. However, if you are running Python 3.6, you can install a backport using pip:
 
 ```
-
-$ python -m pip install dataclasses
-
+python3 -m pip install dataclasses
 ```
 
 ## Dependencies
@@ -82,7 +80,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 pip install "arcade<3.0"  # Arcade 2.x for tutorial compatibility
-python arcade_game.py
+python3 arcade_game.py
 ```
 
 ## Quick Run (No Virtual Environment)
@@ -92,7 +90,7 @@ If you just want to try the game without creating a virtual environment, you can
 ```
 pip install --upgrade pip
 pip install "arcade<3.0"
-python arcade_game.py
+python3 arcade_game.py
 ```
 
 ⚠️ Note: This will install packages into your global Python environment, which may conflict with other projects. Use a virtual environment if you plan to keep developing or modifying the game.
