@@ -1,9 +1,7 @@
 # Arcade: A Primer 
-A simple 2D game built with the Python Arcade library, adapted from the [RealPython tutorial](https://realpython.com/arcade-python-game-framework/).
+Arcade is a simple 2D game built with the Python Arcade library.
 
-## Table of Contents (optional for short projects)
-
-## Overview / Introduction
+## Overview
 
 This repository provides a ready-to-run copy of the game from the [RealPython Arcade Primer](https://realpython.com/arcade-python-game-framework/), with pinned dependencies and compatibility notes for modern Arcade versions. It’s intended as a fast-start reference and a compatibility guide for running the game on modern versions of the Python Arcade library.
 
