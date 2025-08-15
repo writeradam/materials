@@ -110,7 +110,9 @@ In Arcade 3.x, arcade.start_render() is no longer meant to be called in a typica
 **How to fix it**
 The easiest way to fix this issue is to install and run Arcade 2.x:
 
-```python3 -m pip install "arcade<3.0"```
+```
+python3 -m pip install "arcade<3.0"
+```
 
 If you want to modernize the code, you can do so by updating every `arcade.start_render()` with a `selfclear()` or a `window.clear()` call.
 
@@ -118,7 +120,9 @@ If you want to modernize the code, you can do so by updating every `arcade.start
 
 To launch the game, enter:
 
-```python3 arcade_game.py```
+```
+python3 arcade_game.py
+```
 
 A new window should pop up. Sound effects and gameplay should start immediately. If they do not, head to the next section of this tutorial.
 
