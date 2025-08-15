@@ -42,7 +42,7 @@ $ python -m pip install dataclasses
 Arcade is a Python game framework built on top of several other libraries.  
 When you install Arcade via `pip`, it automatically pulls in these dependencies:
 
-arcade (2.x)
+Arcade (2.x)
 - **pyglet** — windowing, graphics, audio, and input (built on OpenGL).  
 - **numpy** — math ops for collisions and movement.  
 - **Pillow** — loads/manipulates sprite images.  
