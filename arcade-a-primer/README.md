@@ -20,15 +20,16 @@ Note: Instructions tested on macOS and Linux; Windows users may need small path 
 
 ## Arcade Game Functionality 
 
-- sprite movement
-- soundtrack + sound effects
-- collision detection
-- score tracking 
+- Sprite movement
+- Soundtrack + sound effects
+- Collision detection
+- Score tracking 
 
 ## Prerequisites
 
 **Important!** The game has not yet (as of August 2025) been updated to Arcade 3.0 or higher. It will only run on Arcade <3.0.
-The game runs on Python version 3.7 or higher. However, if you are running Python 3.6, you will need to install a backport using pip:
+
+The game runs on Python version 3.7 or higher. However, if you are running Python 3.6, you can install a backport using pip:
 
 ```
 
