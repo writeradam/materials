@@ -89,12 +89,11 @@ python arcade_game.py
 
 If you just want to try the game without creating a virtual environment, you can install Arcade system-wide and run it:
 
-```bash
-Copy
-Edit
+```
 pip install --upgrade pip
 pip install "arcade<3.0"
-python arcade_game.py```
+python arcade_game.py
+```
 
 ⚠️ Note: This will install packages into your global Python environment, which may conflict with other projects. Use a virtual environment if you plan to keep developing or modifying the game.
 
